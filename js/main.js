@@ -65,6 +65,15 @@ function humn(){
     }
 }
 
+document.querySelector('#btn-basket').addEventListener('click', showBin)
+document.querySelector('#krist').addEventListener('click', showBin)
+document.querySelector('#backgroundBin').addEventListener('click', showBin)
+
+function showBin() {
+    document.querySelector('#bodyBin').classList.toggle('activeBin')   
+    document.querySelector('#backgroundBin').classList.toggle('activeBackground')   
+}
+
 function main() {full_catalog()
     total_price()
     add_card()
