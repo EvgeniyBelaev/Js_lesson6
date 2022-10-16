@@ -121,7 +121,7 @@ function delProduct(prod) {
                         <img src=${el.img} alt="book" class="mini-book" width="60px" height="90px">
                         <span class="book">${el.name}</span>
                         <span class="prise" data-prise="${el.price}">Цена: ${el.price}р.</span>
-                        <span class="product-quantity">количество: ${el.quantity}</span>
+                        <span class="product-quantity">Количество: ${el.quantity}</span>
                         <span class="product-price">Общая цена: ${el.quantity*el.price}</span>
                         <span class="element-krist" data-id = "${el.id}">&times;</span>
                     </div>`
