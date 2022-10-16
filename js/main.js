@@ -1,7 +1,7 @@
-NAME = ['Возвышение Хоруса', 'Лживые боги', 'Галактика в огне', 'Полёт Эйзенштейна', 'Фулгрим', 'Сошествие Ангелов', 'Легион', 'Битва за Бездну']
-PRICE = [2500, 2000, 2350, 1900, 2060, 1950, 1800, 1590]
-ID = [1, 2, 3, 4, 5, 6, 7, 8]
-let card = document.querySelector('#card')
+const NAME = ['Возвышение Хоруса', 'Лживые боги', 'Галактика в огне', 'Полёт Эйзенштейна', 'Фулгрим', 'Сошествие Ангелов', 'Легион', 'Битва за Бездну']
+const PRICE = [2500, 2000, 2350, 1900, 2060, 1950, 1800, 1590]
+const ID = [1, 2, 3, 4, 5, 6, 7, 8]
+
 
 function full_catalog () {
     let catalog = []
@@ -29,6 +29,7 @@ function total_price() {
 }
 
 function add_card() {
+    let card = document.querySelector('#card')
     for (let i = 0; i <= NAME.length - 1; i++) {
         card.innerHTML += `<figure class="count-img">
                             <img src="img/${i +1}.jpg" alt="book" class="book" width="120px" height="200px">
@@ -36,36 +37,50 @@ function add_card() {
                                 <p class="name-book">${NAME[i]}\n</p>
                                 <p class="price-book">Цена: ${PRICE[i]}</p>
                             </figcaption>
+                            <button class="by-now">Купить</button>
                         </figure>`
     }
 }
-full_catalog()
-total_price()
-add_card()
 
+function humn(){
+    let soupLeft = document.querySelector('.hymn-left')
+    let soupRight = document.querySelector('.hymn-right')
+    for (let i = 0; i <= 5; i++) {
+        soupLeft.innerHTML += `<span class="humn-text">О, горячий суп наварили,</span>
+        <span class="humn-text">О, великий суп наварили,</span>
+        <span class="humn-text">О, шикарный суп наварили</span>
+        <span class="humn-text">О, великий суп наварили,</span>
+        <span class="humn-text">Суп, горячий суп,</span>
+        <span class="humn-text">Ешь суп, горячий суп.</span>
+        <span class="humn-text"></span>`
 
-obj = {
-    a: 1,
-    b: [
-        {
-            a: 2,
-            b: [
-                {a: 3, c: 'qwe1'}, {a: 3, c: 'qwe2'}, {a: 3, c: 'qwe3'}
-            ]
-        },
-        {
-            a: 2,
-            b: [
-                {a: 3, c: 'qwer1'}, {a: 3, c: 'qwer2'}
-            ]
-        },
-        {
-            a: 2,
-            b: [
-                {a: 3, c: 'qwert1'}
-            ]
-        }
-    ]
+        soupRight.innerHTML += `<span class="humn-text">О, горячий суп наварили,</span>
+        <span class="humn-text">О, великий суп наварили,</span>
+        <span class="humn-text">О, шикарный суп наварили</span>
+        <span class="humn-text">О, великий суп наварили,</span>
+        <span class="humn-text">Суп, горячий суп,</span>
+        <span class="humn-text">Ешь суп, горячий суп.</span>
+        <span class="humn-text"></span>`
+
+    }
 }
 
-console.log(obj);
+document.querySelector('#btn-basket').addEventListener('click', showBin)
+document.querySelector('#krist').addEventListener('click', showBin)
+document.querySelector('#backgroundBin').addEventListener('click', showBin)
+
+function showBin() {
+    document.querySelector('#bodyBin').classList.toggle('activeBin')   
+    document.querySelector('#backgroundBin').classList.toggle('activeBackground')   
+}
+
+function main() {full_catalog()
+    total_price()
+    add_card()
+    humn()}
+
+
+main()
+
+
+
