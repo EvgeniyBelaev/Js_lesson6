@@ -42,3 +42,30 @@ function add_card() {
 full_catalog()
 total_price()
 add_card()
+
+
+obj = {
+    a: 1,
+    b: [
+        {
+            a: 2,
+            b: [
+                {a: 3, c: 'qwe1'}, {a: 3, c: 'qwe2'}, {a: 3, c: 'qwe3'}
+            ]
+        },
+        {
+            a: 2,
+            b: [
+                {a: 3, c: 'qwer1'}, {a: 3, c: 'qwer2'}
+            ]
+        },
+        {
+            a: 2,
+            b: [
+                {a: 3, c: 'qwert1'}
+            ]
+        }
+    ]
+}
+
+console.log(obj);
