@@ -94,11 +94,16 @@ function delProduct(prod) {
     userCart.forEach (el => {
         oneSting += `<div class="one-element">
                         <img src=${el.img} alt="book" class="mini-book" width="60px" height="90px">
-                        <span class="book">${el.name}</span>
-                        <span class="prise" data-prise="${el.price}">Цена: ${el.price}р.</span>
-                        <span class="product-quantity">Количество: ${el.quantity}</span>
-                        <span class="product-price" data-pp = "${el.quantity*el.price}">Общая цена: ${el.quantity*el.price} р.</span>
-                        <span class="element-krist" data-id = "${el.id}">&times;</span>
+                        <div class="book">${el.name}</div>
+                        <div class="prise" data-prise="${el.price}"><span>Цена:</span> ${el.price}р.</div>
+                        <div class="product-quantity">
+                            <span>Количество:</span>
+                            <div class="product-quantity-bottom"> 
+                                <div class="product-minus">-</div> ${el.quantity} <div class="product-plus">+</div>
+                            </div>
+                        </div>
+                        <div class="product-price" data-pp = "${el.quantity*el.price}"><span>Общая цена:</span> ${el.quantity*el.price} р.</div>
+                        <div class="element-krist" data-id = "${el.id}">&times;</div>
                     </div>`
     })
     document.querySelector('#countBin').innerHTML = oneSting
@@ -115,6 +120,7 @@ document.querySelector('#mainBin').addEventListener('click', function(evt) {
     }
 })
 
+
 function total_price() {
     let sum = 0
     document.querySelectorAll('.product-price').forEach(item => {
@@ -122,7 +128,6 @@ function total_price() {
     })
 
     document.querySelector('.total-prise-text').innerHTML = `${sum} рублей `     
-   
 }
 
 function main() {    
