@@ -1,29 +1,7 @@
+import { humn } from "./app/humn.js"
 const NAME = ['Возвышение Хоруса', 'Лживые боги', 'Галактика в огне', 'Полёт Эйзенштейна', 'Фулгрим', 'Сошествие Ангелов', 'Легион', 'Битва за Бездну']
 const PRICE = [2500, 2000, 2350, 1900, 2060, 1950, 1800, 1590]
 const ID = [1, 2, 3, 4, 5, 6, 7, 8]
-
-function humn(){
-    let soupLeft = document.querySelector('.hymn-left')
-    let soupRight = document.querySelector('.hymn-right')
-    for (let i = 0; i <= 5; i++) {
-        soupLeft.innerHTML += `<span class="humn-text">О, горячий суп наварили,</span>
-        <span class="humn-text">О, великий суп наварили,</span>
-        <span class="humn-text">О, шикарный суп наварили</span>
-        <span class="humn-text">О, великий суп наварили,</span>
-        <span class="humn-text">Суп, горячий суп,</span>
-        <span class="humn-text">Ешь суп, горячий суп.</span>
-        <span class="humn-text"></span>`
-
-        soupRight.innerHTML += `<span class="humn-text">О, горячий суп наварили,</span>
-        <span class="humn-text">О, великий суп наварили,</span>
-        <span class="humn-text">О, шикарный суп наварили</span>
-        <span class="humn-text">О, великий суп наварили,</span>
-        <span class="humn-text">Суп, горячий суп,</span>
-        <span class="humn-text">Ешь суп, горячий суп.</span>
-        <span class="humn-text"></span>`
-
-    }
-}
 
 let productsDTO = full_catalog()
 let userCart = []
@@ -143,9 +121,7 @@ document.querySelector('#mainBin').addEventListener('click', function(evt) {
 function main() {
     total_price()
     add_card()
-    humn()
-
-    
+    humn ()  
 }
 
 main()
