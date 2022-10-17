@@ -40,13 +40,6 @@ function one_part(I) {
     }
 }
 
-function total_price() {
-    let sum = 0
-    PRICE.forEach(element => {sum += element})
-    console.log('Общая цена:', sum, 'рублей');       
-   
-}
-
 function add_card() {
     let card = document.querySelector('#card')
     let oneCard = ''
@@ -82,6 +75,7 @@ function addProd (prod) {
         })
     }
     renderCart()
+    total_price()
 }
 function delProduct(prod) {
     let find = userCart.find (el => {
@@ -93,8 +87,9 @@ function delProduct(prod) {
         userCart.splice (userCart.indexOf(find), 1)
     }
     renderCart()
+    total_price()
 }
- function renderCart() {
+ function renderCart() {   
     let oneSting = ''
     userCart.forEach (el => {
         oneSting += `<div class="one-element">
@@ -102,7 +97,7 @@ function delProduct(prod) {
                         <span class="book">${el.name}</span>
                         <span class="prise" data-prise="${el.price}">Цена: ${el.price}р.</span>
                         <span class="product-quantity">Количество: ${el.quantity}</span>
-                        <span class="product-price">Общая цена: ${el.quantity*el.price}</span>
+                        <span class="product-price" data-pp = "${el.quantity*el.price}">Общая цена: ${el.quantity*el.price} р.</span>
                         <span class="element-krist" data-id = "${el.id}">&times;</span>
                     </div>`
     })
@@ -120,8 +115,17 @@ document.querySelector('#mainBin').addEventListener('click', function(evt) {
     }
 })
 
-function main() {
-    total_price()
+function total_price() {
+    let sum = 0
+    document.querySelectorAll('.product-price').forEach(item => {
+        sum += +item.dataset['pp']
+    })
+
+    document.querySelector('.total-prise-text').innerHTML = `${sum} рублей `     
+   
+}
+
+function main() {    
     add_card()
     humn ()  
 }
