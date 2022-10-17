@@ -65,7 +65,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-.by-now {
+.by-now, .btn-by-oll {
     margin: 0;
     border: none;
     border-radius: 3px;
@@ -77,7 +77,7 @@ body {
     color: antiquewhite;
 
 }
-.by-now:hover {
+.by-now:hover, .btn-by-oll:hover {
     cursor: pointer;
     background: #181817;
     background: -webkit-linear-gradient(bottom, #181817, #2C2C2C);
@@ -146,6 +146,9 @@ body {
     align-items: center;
     gap: 30px;
 }
+.one-element:last-child {
+    border: none;
+}
 .book {
     font-size: 20px;
 }
@@ -154,5 +157,17 @@ body {
     cursor: pointer;
 }
 .bin-footer {
-    border-top: #010101 solid 1 px;
+    margin: 15px 0;
+    border-top: #010101 solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total-prise {
+    font-size: 20px;
+    margin: 10px 0 0 30px;
+}
+.btn-by-oll {
+    font-size: 15px;
+    margin: 10px 15px 0 0;
 }
