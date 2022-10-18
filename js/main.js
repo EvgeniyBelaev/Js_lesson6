@@ -99,7 +99,7 @@ function delProduct(prod) {
                         <div class="product-quantity">
                             <span>Количество:</span>
                             <div class="product-quantity-bottom"> 
-                                <div class="product-minus">-</div> ${el.quantity} <div class="product-plus">+</div>
+                                <button class="product-minus">-</button> ${el.quantity} <button class="product-plus">+</button>
                             </div>
                         </div>
                         <div class="product-price" data-pp = "${el.quantity*el.price}"><span>Общая цена:</span> ${el.quantity*el.price} р.</div>

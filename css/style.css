@@ -86,15 +86,13 @@ body {
 
 }
 .bin-background {
-    position: absolute;
-    min-height: 1598px;
+    display: none;
+    position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0,0, 0, 0.5);
-    z-index: -10000;
-    opacity: 0;
 }
 .bin-body {
     position: absolute;
@@ -122,15 +120,20 @@ body {
     border: #010101 solid 1px;
     border-radius: 3px;
     padding: 1px 5px;
-    background-color: #9f0406;
+    background: #D40306;
+    background: -webkit-radial-gradient(top, #D40306, #010101);
+    background: -moz-radial-gradient(top, #D40306, #010101);
+    background: radial-gradient(to bottom, #D40306, #010101); 
     cursor: pointer;
 }
 .bin-krist:hover {
-    background-color: #D40306;
+    background: #fc0f13;
+    background: -webkit-radial-gradient(top, #fc0f13, #010101);
+    background: -moz-radial-gradient(top, #fc0f13, #010101);
+    background: radial-gradient(to bottom, #fc0f13, #010101); 
 }
 .activeBackground {
-    z-index: 0;
-    opacity: 1;
+    display: block;
     
 }
 .activeBin {
@@ -159,15 +162,29 @@ body {
     align-items: center;
 }
 .product-quantity-bottom {
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     gap: 15px;
 
+
 }
 .product-minus, .product-plus {
     cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0,0, 0, 0.5);
+    border: 1px solid rgba(0,0, 0, 0.5);
+    border-radius: 3px;
+    
 }
-
+.product-minus:active, .product-plus:active{
+    background: #D40306;
+    background: -webkit-radial-gradient(top, #D40306, #010101);
+    background: -moz-radial-gradient(top, #D40306, #010101);
+    background: radial-gradient(to bottom, #D40306, #010101); 
+}
+.product-minus {
+    padding: 1px 7.67px 1px 7.67px;
+}
 .element-krist {
     font-size: 20px;
     cursor: pointer;
