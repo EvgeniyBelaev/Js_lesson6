@@ -96,10 +96,10 @@ function delProduct(prod) {
                         <img src=${el.img} alt="book" class="mini-book" width="60px" height="90px">
                         <div class="book">${el.name}</div>
                         <div class="prise" data-prise="${el.price}"><span>Цена:</span> ${el.price}р.</div>
-                        <div class="product-quantity">
+                        <div class="product-quantity" data-pq="${el.quantity}">
                             <span>Количество:</span>
                             <div class="product-quantity-bottom"> 
-                                <button class="product-minus">-</button> ${el.quantity} <button class="product-plus">+</button>
+                                <button class="product-minus" data-id = "${el.id}">-</button> ${el.quantity} <button class="product-plus" data-id = "${el.id}">+</button>
                             </div>
                         </div>
                         <div class="product-price" data-pp = "${el.quantity*el.price}"><span>Общая цена:</span> ${el.quantity*el.price} р.</div>
@@ -118,21 +118,53 @@ document.querySelector('#mainBin').addEventListener('click', function(evt) {
     if (evt.target.classList.contains('element-krist')) {
         delProduct(evt.target)
     }
+    else if (evt.target.classList.contains('product-minus')) {
+        delProduct(evt.target)
+    }
+    else if (evt.target.classList.contains('product-plus')) {
+        addProd(evt.target)
+    }
 })
 
 
 function total_price() {
-    let sum = 0
+    let sumQuantity = 0
+    let sumPrice = 0
     document.querySelectorAll('.product-price').forEach(item => {
-        sum += +item.dataset['pp']
+        sumPrice += +item.dataset['pp']
+    })
+    document.querySelectorAll('.product-quantity').forEach(item => {
+        sumQuantity += +item.dataset['pq']
     })
 
-    document.querySelector('.total-prise-text').innerHTML = `${sum} рублей `     
+    document.querySelector('.total-prise-text').innerHTML = `${sumPrice} рублей `
+    document.querySelector('.total-quantity-text').innerHTML = `${sumQuantity}`
+    
+    if (sumQuantity > 0) {
+        document.querySelector('#footerBin').classList.add('bin-footer-active')
+    }
+    else if (sumQuantity == 0) {
+        document.querySelector('#footerBin').classList.remove('bin-footer-active')
+
+        document.querySelector('#countBin').innerHTML = `<div class="empty">
+                                                            <span class="empty-text">Корзина пуста</span>
+                                                        </div>`
+    }
+    
+
+
 }
+
+function emptyBin () {
+    
+}
+
 
 function main() {    
     add_card()
-    humn ()  
+    humn () 
+    emptyBin()
+    total_price() 
 }
 
 main()

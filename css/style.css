@@ -120,6 +120,7 @@ body {
     border: #010101 solid 1px;
     border-radius: 3px;
     padding: 1px 5px;
+    color: antiquewhite;
     background: #D40306;
     background: -webkit-radial-gradient(top, #D40306, #010101);
     background: -moz-radial-gradient(top, #D40306, #010101);
@@ -190,17 +191,34 @@ body {
     cursor: pointer;
 }
 .bin-footer {
+    display: none;
+}
+.bin-footer-active {
     margin: 15px 0;
     border-top: #010101 solid 1px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
 }
-.total-prise {
+.total-prise, .total-quantity {
     font-size: 20px;
     margin: 10px 0 0 30px;
 }
 .btn-by-oll {
     font-size: 15px;
     margin: 10px 15px 0 0;
+}
+.empty {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.empty-text {
+    font-size: 30px;
+    font-weight: bold;
 }
