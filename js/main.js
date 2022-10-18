@@ -89,6 +89,15 @@ function delProduct(prod) {
     renderCart()
     total_price()
 }
+
+function delProductAll(prod) {
+    let find = userCart.find (el => {
+        return el.id === +prod.dataset['id']
+    })
+        userCart.splice (userCart.indexOf(find), 1)
+    renderCart()
+    total_price()
+}
  function renderCart() {   
     let oneSting = ''
     userCart.forEach (el => {
@@ -116,7 +125,7 @@ function delProduct(prod) {
 })
 document.querySelector('#mainBin').addEventListener('click', function(evt) {
     if (evt.target.classList.contains('element-krist')) {
-        delProduct(evt.target)
+        delProductAll(evt.target)
     }
     else if (evt.target.classList.contains('product-minus')) {
         delProduct(evt.target)
@@ -155,15 +164,9 @@ function total_price() {
 
 }
 
-function emptyBin () {
-    
-}
-
-
 function main() {    
     add_card()
     humn () 
-    emptyBin()
     total_price() 
 }
 
